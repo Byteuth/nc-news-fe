@@ -22,9 +22,10 @@ button {
   align-items: center;
   border: 1px solid orangered;
   padding: 5px 10px;
-  margin-bottom: 20px;
+  margin: 20px;
   width:  100%;
   height: 100%;
+  
 }
 
 .nav-button-container {
@@ -45,12 +46,9 @@ button {
   font-size: 16px; 
 }
 
-/* .article-image {
+.article-image {
   border: 1px solid  orange;
-  width: 200px; 
-  height: 200px;
-  margin: 0px
-} */
+}
 
 .article-section {
   display:block;
@@ -64,6 +62,8 @@ button {
 }
 
 .article-header {
+  background-color: rgb(88, 24, 0);
+  text-align: center;
   justify-content: center;
   align-items: center;
   border: 1px solid  orange;
@@ -79,4 +79,46 @@ button {
   padding: 10px;
   margin: 10px;
 }
- 
+
+
+.comment-container {
+  list-style-type: none;
+  display: block;
+  border: 1px solid orangered;
+  background-color: rgb(19, 5, 0);
+  width:  100%;
+  height: 100%;
+}
+.comment-votes {
+  
+  display: flex;
+  justify-content: center;
+  font-size: 14px; 
+}
+
+.comment-header{
+  padding: 6px;
+  text-align: center;
+  font-size: 17px;
+}
+
+.comment-author {
+  background-color: rgb(88, 24, 0);
+  padding-left: 14px;
+  font-size: 14px;
+  margin-bottom: -3px;
+}
+
+.comment-body {
+  background-color: rgb(88, 24, 0);
+  padding-left: 14px;
+  margin: 20px;
+}
+
+.comment-date {
+  padding-left: 14px;
+}
+
+.loading-img {
+  display: flex;
+}

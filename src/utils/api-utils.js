@@ -26,8 +26,14 @@ const getAllTopics = () => {
 
 }
 
+const getComments = (articleId) => {
+    return ncnewsApi.get(`/articles/${articleId}/comments`)
+    .then((response) => response.data.article)
+    .catch((err) => err)
+}
 
 
 
 
-export {getAllArticles, getAllTopics, getArticleById}
+
+export {getAllArticles, getAllTopics, getArticleById, getComments,}
