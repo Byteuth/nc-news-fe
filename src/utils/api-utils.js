@@ -33,7 +33,15 @@ const getComments = (articleId) => {
 }
 
 
+const postVote = (vote, articleId) => {
+    console.log(articleId)
+    return ncnewsApi.patch(`/articles/${articleId}`, vote)
+    .then((response) => console.log(response))
+    .catch((err) => err)
+}
 
 
 
-export {getAllArticles, getAllTopics, getArticleById, getComments,}
+
+
+export {getAllArticles, getAllTopics, getArticleById, getComments, postVote}

@@ -3,6 +3,8 @@ import { useState, useEffect } from "react"
 
 import {getArticleById, getComments} from '../utils/api-utils'
 import CommentCard from './CommentCard'
+import VoteButton from './VoteButton'
+
 
 
 const FullArticleComponent = () => {
@@ -30,44 +32,47 @@ let params = useParams()
     
     return (
         <>
-        {isLoading 
-        ? <img 
-            className="loading-img"
-            src ={loadImgUrl}
-            alt="loading image"/> 
+        <div className="">
+            {isLoading 
+            ? <img 
+                className="loading-img"
+                src ={loadImgUrl}
+                alt="loading image"/> 
 
-        : <article >
-            <h3 className="article-header"> {article.title} </h3>
-            <p/>
-            <figure>
-                <img 
-                    className="article-image"
-                    src={article.article_img_url}
-                    alt="Article Preview"
-                />
-            </figure>
-            <p/>
-            <section className="article-section">
-                    <h3 > {article.title} </h3>
-                    <h4> topic: {article.topic}</h4>
-                    <p> author: {article.author}</p>
-                    <p> published: {article.created_at}</p>
-                    <p> {article.body}</p>
-                <footer>
-                    <p> comments: {article.comment_count}</p>
-                    <p> votes: {article.votes}</p>
-                </footer>
-            </section>
-        </article>
-        }
-        {comments.map((comment) => (
-                <li 
-                key={comment.comment_id}
-                className="comment-container">
-                    <CommentCard comment={comment}/>
-                </li>
-            ))}
-            
+            : <article >
+                <h3 className="article-header"> {article.title} </h3>
+                <p/>
+                <figure>
+                    <img 
+                        className="article-image"
+                        src={article.article_img_url}
+                        alt="Article Preview"
+                    />
+                </figure>
+                <p/>
+                <section className="article-section">
+                        <h3 > {article.title} </h3>
+                        <h4> topic: {article.topic}</h4>
+                        <p> author: {article.author}</p>
+                        <p> published: {article.created_at}</p>
+                        <p> {article.body}</p>
+                    <footer>
+                        <p> comments: {article.comment_count}</p>
+                    </footer>
+                </section>
+            </article>
+            }
+        <VoteButton article={article}/>
+        </div>
+        <div>
+            {comments.map((comment) => (
+                    <li 
+                    key={comment.comment_id}
+                    className="comment-container">
+                        <CommentCard comment={comment}/>
+                    </li>
+                ))}
+        </div>
         </>
     )
 }
