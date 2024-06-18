@@ -7,7 +7,7 @@ const ArticlesList = ({articlesToDisplay}) => {
             {articlesToDisplay.map((article) => (
                 <li 
                 key={article.article_id}
-                className="generic-border">
+                className="article-preview-card">
                     <ArticlePreviewCard article={article}/>
                 </li>
             ))}

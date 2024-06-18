@@ -1,10 +1,21 @@
-import { Link } from "react-router-dom"
+import { useParams } from 'react-router-dom'
+import { useState, useEffect } from "react"
 
-const ArticlePreviewCard = ({article}) => {
+import {getArticleById} from '../utils/api-utils'
 
+const FullArticlePage = () => {
+const [article, setArticle] = useState([])
+let params = useParams()
+
+
+    useEffect(() => {
+        getArticleById(params.article_id)
+        .then((response) => setArticle(response))
+        .catch((err) => console.log(err))
+    })
+    
     return (
-        <Link to={`/articles/${article.article_id}`}>
-        <article>
+        <article >
             <h3 className="article-header"> {article.title} </h3>
             <p/>
             <figure>
@@ -26,8 +37,7 @@ const ArticlePreviewCard = ({article}) => {
                 </footer>
             </section>
         </article>
-    </Link>
     )
 }
 
-export default ArticlePreviewCard
+export default FullArticlePage

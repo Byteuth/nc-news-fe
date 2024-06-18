@@ -1,61 +1,40 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+
+article {
+  display: grid;
+  grid-template-columns: auto 2fr; 
+  grid-template-rows: auto 3fr;
+  align-items: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+footer {
+  display: flex;
+  justify-content: space-between;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.no-list-bullets {
-  list-style-type: none;  
-  padding: 0;            
-  margin: 0;              
-  display: flex;        
-  flex-wrap: wrap;      
+button {
+  margin: 4px;
 }
 
 .generic-border {
-  list-style-type: none;  
-  display: flex;
+  list-style-type: none;
+  display: inline-block;
   justify-content: center;
   align-items: center;
-  border: 1px solid orangered; 
-  padding: 5px 10px;          
+  border: 1px solid orangered;
+  padding: 5px 10px;
+  margin-bottom: 20px;
+  width:  100%;
+  height: 100%;
+}
+
+.nav-button-container {
+  list-style-type: none;
+  display: inline-flex;
+  border: 1px solid orangered;
+  width:  100%;
+  height: 100%;
+  padding: 5px 10px;
+  margin-bottom: 20px;
 }
 
 .input-field {
@@ -66,28 +45,38 @@
   font-size: 16px; 
 }
 
+/* .article-image {
+  border: 1px solid  orange;
+  width: 200px; 
+  height: 200px;
+  margin: 0px
+} */
+
+.article-section {
+  display:block;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(39, 38, 38);
+  border: 1px solid  orange;
+  padding-left: 4px;
+  padding-right: 4px;
+  font-size: 14px; 
+}
+
+.article-header {
+  justify-content: center;
+  align-items: center;
+  border: 1px solid  orange;
+  margin: 0px
+}
+
 .article-preview-card {
-  display: grid;
-  grid-template-columns: 260px 1fr; 
-  grid-template-rows: auto 1fr;
+  list-style-type: none;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid  orange;
   padding: 10px;
-  border: 1px solid whitesmoke;
+  margin: 10px;
 }
-
-.article-image-container {
-  width: 200px;
-  height: 260px; 
-}
-
-.article-image {
-  width: 100%; 
-  height: 100%;
-}
-
-
-.article-footer {
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
+ 

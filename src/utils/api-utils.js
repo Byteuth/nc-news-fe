@@ -1,12 +1,33 @@
-import axios from 'axios';
+import axios from 'axios'
 
-const allarticlesURL = 'https://nc-news-api-v5m5.onrender.com/api/articles'
-export const getAllArticles = () => {
-    return axios.get(allarticlesURL)
+const ncnewsApi = axios.create({
+    baseURL: 'https://nc-news-api-v5m5.onrender.com/api'
+})
+
+
+const getAllArticles = () => {
+    return ncnewsApi.get('/articles')
     .then((response) =>  response.data.articles)
+    .catch((err) => err)
+    
+}
+
+const getArticleById = (articleId) => {
+    return ncnewsApi.get(`/articles/${articleId}`)
+    .then((response) =>  response.data.article)
+    .catch((err) => err)
+    
+}
+
+const getAllTopics = () => {
+    return ncnewsApi.get('/topics')
+    .then((response) =>  response.data.topics)
     .catch((err) => console.log(err))
 
 }
 
 
-export default getAllArticles
+
+
+
+export {getAllArticles, getAllTopics, getArticleById}
