@@ -31,10 +31,8 @@ let params = useParams()
     
     return (
         <>
-        {error 
-        ?  <h3>Error found</h3>
-        : 
-        <div className="">
+        {article.article_id 
+        ? <div className="">
             {isLoading 
             ? 
                 <img
@@ -71,6 +69,7 @@ let params = useParams()
                 <Link to={`/articles/${article.article_id}/comments`}> Click for comments</Link>   
             </button>  
         </div>
+        : <h3>Article does not exist </h3>
         } 
         </>
     )
