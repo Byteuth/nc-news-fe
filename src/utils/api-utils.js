@@ -35,10 +35,18 @@ const getComments = (articleId) => {
 
 const postVote = (articleId, votes) => {
     return ncnewsApi.patch(`/articles/${articleId}`, {inc_votes: votes} )
-    .then((response) => console.log(response))
+    .then((response) => {response.data.updatedArticle, console.log(response.data.updatedArticle)})
     .catch((err) => console.log(err))
 }
 
+const postComment = (comment, articleId) => {
+    return ncnewsApi.post(`/articles/${articleId}/comments`, comment)
+    .then((response) => response.data.postedComment)
+    .catch((err) => {
+        console.error('Error posting comment:', err)
+        throw err
+    });
+}
 
 
-export {getAllArticles, getAllTopics, getArticleById, getComments, postVote}
+export {getAllArticles, getAllTopics, getArticleById, getComments, postVote, postComment}

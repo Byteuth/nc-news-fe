@@ -13,11 +13,11 @@ const VoteButton = ({ item }) => {
         const itemId = item.article_id || item.comment_id
 
         postVote(itemId, 1)
-            .then(() => {
-                setVoteCounter(previousCount => previousCount +1)
-            })
-            .catch((err) => err)
-        }
+        .then(() => {
+            setVoteCounter(previousCount => previousCount +1)
+        })
+        .catch((err) => err)
+    }
 
     return (
         <div className="vote-container">
