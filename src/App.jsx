@@ -6,6 +6,7 @@ import ArticlesPage from './components/ArticlesPage'
 import IndividualArticlePage from './components/IndividualArticlePage'
 import UsersPage from './components/UsersPage'
 import ErrorPage from './components/ErrorPage'
+import AllCommentsComponent from './components/AllCommentsComponent'
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<NavBar/>} />  
         <Route path="/articles" element={<ArticlesPage/>} /> 
         <Route path="/articles/:article_id" element={<IndividualArticlePage/>} /> 
+        <Route path="/articles/:article_id/comments" element={<AllCommentsComponent/>}/>
         <Route path="/articles/users" element={<UsersPage/>} /> 
         <Route path="/error" element={<ErrorPage/>} />
       </Routes>
