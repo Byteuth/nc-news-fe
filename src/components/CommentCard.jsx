@@ -8,7 +8,7 @@ const CommentCard = ({comment}) => {
             <p className="comment-body"> {comment.body}</p>
             <p className="comment-date"> {comment.created_at} </p>
         </div>
-            <VoteButton article={comment}/>
+            <VoteButton item={comment}/>
         </>
     )
 }

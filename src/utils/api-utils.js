@@ -33,14 +33,11 @@ const getComments = (articleId) => {
 }
 
 
-const postVote = (vote, articleId) => {
-    console.log(articleId)
-    return ncnewsApi.patch(`/articles/${articleId}`, vote)
+const postVote = (articleId, votes) => {
+    return ncnewsApi.patch(`/articles/${articleId}`, {inc_votes: votes} )
     .then((response) => console.log(response))
-    .catch((err) => err)
+    .catch((err) => console.log(err))
 }
-
-
 
 
 

@@ -2,27 +2,31 @@ import { useState, useEffect } from 'react'
 
 import {postVote} from '../utils/api-utils'
 
-const VoteButton = ({article}) => {
-    const initialVoteCount = article.votes
-    const [voteCount, setVoteCount] = useState(initialVoteCount || 0)
+const VoteButton = ({ item }) => {
+    const [voteCounter, setVoteCounter] = useState(item.votes || 0)
 
-    const articleId = 6
     useEffect(() => {
-        postVote(voteCount, articleId)
-        .then(() => setVoteCount(voteCount))
-        .catch((err) => console.log(err))
-    },[initialVoteCount])
+        setVoteCounter(item.votes)
+    },[item.votes])
 
+    const handleClick = () => {
+        const itemId = item.article_id || item.comment_id
 
-    const handleClick = (event) => {
-        event.preventDefault()
-        setVoteCount(voteCount +1)
-    }
+        postVote(itemId, 1)
+            .then(() => {
+                setVoteCounter(previousCount => previousCount +1)
+            })
+            .catch((err) => err)
+        }
 
     return (
         <div className="vote-container">
-            <p className="vote-current"> votes: {article.votes} </p>
-            <button onClick={handleClick} className="vote-button"> vote </button>
+            <p className="vote-current"> votes: {voteCounter} </p>     
+            <button 
+                onClick={handleClick} 
+                className="vote-button">
+                Vote
+            </button>
         </div>
     )
 }
