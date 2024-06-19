@@ -1,6 +1,6 @@
 import VoteButton from './VoteButton'
 
-const CommentCard = ({comment}) => {
+const CommentCard = ({comment, voteTag}) => {
     return (
         <>
         <div>
@@ -8,7 +8,10 @@ const CommentCard = ({comment}) => {
             <p className="comment-body"> {comment.body}</p>
             <p className="comment-date"> {comment.created_at} </p>
         </div>
-            <VoteButton item={comment}/>
+            {voteTag 
+                ? null 
+                : <VoteButton item={comment}/>
+            }    
         </>
     )
 }
