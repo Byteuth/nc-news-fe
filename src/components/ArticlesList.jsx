@@ -2,7 +2,7 @@ import ArticlePreviewCard from './ArticlePreviewCard'
 
 const ArticlesList = ({articlesToDisplay}) => {
     return (
-        <div className="generic-border">
+        <div className="article-section">
             <ul>
             {articlesToDisplay.map((article) => (
                 <li 

@@ -20,7 +20,6 @@ const ArticlesPage = () => {
 
     return (
         <>
-            <NavBar />
             <h2 className="generic-border"> Articles </h2>
             <NavBarTopics />
             <SearchArticleByIdForm />

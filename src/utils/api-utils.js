@@ -32,21 +32,32 @@ const getComments = (articleId) => {
     .catch((err) => err)
 }
 
+const getUsers = () => {
+    return ncnewsApi.get(`/users`)
+    .then((response) => response.data.users)
+    .catch((err) => err)
+}
+
 
 const postVote = (articleId, votes) => {
     return ncnewsApi.patch(`/articles/${articleId}`, {inc_votes: votes} )
-    .then((response) => {response.data.updatedArticle, console.log(response.data.updatedArticle)})
-    .catch((err) => console.log(err))
+    .then((response) => response.data.updatedArticle)
+    .catch((err) => err)
 }
 
-const postComment = (comment, articleId) => {
-    return ncnewsApi.post(`/articles/${articleId}/comments`, comment)
+const postComment = (commentData, articleId) => {
+    console.log(commentData, articleId)
+    return ncnewsApi.post(`/articles/${articleId}/comments`, commentData)
     .then((response) => response.data.postedComment)
-    .catch((err) => {
-        console.error('Error posting comment:', err)
-        throw err
-    });
+    .catch((err) => err)
+}
+
+const deleteCommentById = (commentId) => {
+    return ncnewsApi.delete(`/comments/${commentId}`)
+    .then((response) => response.status)
+    .catch((err) => err.status)
 }
 
 
-export {getAllArticles, getAllTopics, getArticleById, getComments, postVote, postComment}
+
+export {getAllArticles, getAllTopics, getArticleById, getComments, postVote, postComment, getUsers, deleteCommentById}

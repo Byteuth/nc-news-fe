@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from "react"
 
-import CommentCard from './CommentCard'
+import CommentsList from './CommentsList'
 import ArticlePreviewCard from './ArticlePreviewCard'
 import AddNewCommentContainer from './AddNewCommentContainer'
 
@@ -20,32 +20,16 @@ const AllCommentsComponent = () => {
         .catch((err) => setError(err))
 
         getComments(params.article_id)
-        .then((response) =>  setCommentsList(response))
-        .catch((err) => setError("No comments found"))
+        .then((response) => setCommentsList(response))
+        .catch((err) =>  setError("No comments found"))
     },[params.article_id])
-
 
 
     return (
         <>
         <ArticlePreviewCard article={article}/>
-        <AddNewCommentContainer 
-            setCommentsList={setCommentsList} 
-            commentsList={commentsList}
-        />
-        {commentsList[0]
-        ? 
-            <div className="comment-container">
-            <CommentCard comment={commentsList[0]} voteTag="vote-not-allowed"/>
-            {console.log(commentsList)}
-            {commentsList.slice(1).map((comment) => (
-                <li key={comment.comment_id} className="comment-container">
-                    <CommentCard comment={comment} />
-                </li>
-            ))}
-            </div>
-        : null
-        }
+        <AddNewCommentContainer setCommentsList={setCommentsList} />
+        <CommentsList commentsList={commentsList}/> 
         </>
     )
 }

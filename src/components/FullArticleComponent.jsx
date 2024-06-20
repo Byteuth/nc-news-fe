@@ -62,12 +62,14 @@ let params = useParams()
                             <p> comments: {article.comment_count}</p>
                         </footer>
                     </section>
+                    <VoteButton item={article} />
                 </article>
             }
-            <VoteButton item={article} />
-            <button>                    
-                <Link to={`/articles/${article.article_id}/comments`}> Click for comments</Link>   
-            </button>  
+            <div className="load-comments-container">
+                <button className="load-comments-button">                    
+                    <Link to={`/articles/${article.article_id}/comments`}> Load comments</Link>   
+                </button>  
+            </div>
         </div>
         : <h3>Article does not exist </h3>
         } 
