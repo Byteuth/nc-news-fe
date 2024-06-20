@@ -5,7 +5,6 @@ import FullArticleComponent from './FullArticleComponent'
 const IndividualArticlePage = () => {
     return (
         <>
-            <NavBar />
             <SearchArticleByIdForm />
             <FullArticleComponent />
         </>
