@@ -25,10 +25,11 @@ function App() {
         <NavBar />
       <Routes >
         {/* <Route path="/" element={<NavBar/>} />   */}
-        <Route path="/articles" element={<ArticlesPage/>} /> 
-        <Route path="/articles/:article_id" element={<IndividualArticlePage/>} /> 
-        <Route path="/articles/:article_id/comments" element={<AllCommentsComponent/>}/>
         <Route path="/articles/:article_id/comments/:comment_id" element={<AllCommentsComponent/>}/>
+        <Route path="/articles/:article_id/comments" element={<AllCommentsComponent/>}/>
+        <Route path="/articles/:article_id" element={<IndividualArticlePage/>} />
+        <Route path="/articles/:topic_slug" element={<ArticlesPage/>} />  
+        <Route path="/articles" element={<ArticlesPage/>} /> 
         <Route path="/users"  element={<LoginPage/>} /> 
         <Route path="/error" element={<ErrorPage/>} />
       </Routes>

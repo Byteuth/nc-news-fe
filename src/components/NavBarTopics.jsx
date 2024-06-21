@@ -3,7 +3,7 @@ import { useState, useEffect }  from 'react'
 import { getAllTopics } from '../utils/api-utils'
 
 
-const NavBarTopics = () => {
+const NavBarTopics = ({setSelectedTopic}) => {
     const [topicsList, setTopicsList] = useState([])
     
     useEffect(() => {
@@ -13,12 +13,13 @@ const NavBarTopics = () => {
 
     return (
         <div className="generic-border">
-            <ul className="nav-button-container">    {/* alternative to index? */}
-            {topicsList.map((topic, index) => (
-                <li key={index}>
-                    <button>{topic.slug}</button>
+            <ul className="nav-button-container">   
+            {topicsList.map((topic) => (
+                <li key={topic.slug}>
+                    <button onClick={() => setSelectedTopic(topic.slug)}>  {topic.slug} </button>
                 </li>
-            ))}
+            ))}            
+            <button onClick={() => setSelectedTopic(null)}> All </button>
             </ul>
         </div>
 
