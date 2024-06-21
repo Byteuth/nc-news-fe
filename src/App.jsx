@@ -11,6 +11,7 @@ import IndividualArticlePage from './components/IndividualArticlePage'
 import LoginPage from './components/LoginPage'
 import ErrorPage from './components/ErrorPage'
 import AllCommentsComponent from './components/AllCommentsComponent'
+import Home from './components/Home'
 
 
 
@@ -31,7 +32,7 @@ function App() {
         <Route path="/articles" element={<ArticlesPage/>} /> 
         <Route path="/users"  element={<LoginPage/>} /> 
         <Route path="/error" element={<ErrorPage/>} />
-        <Route path="*" element={<Navigate to="/error"></Navigate>} />
+        <Route path="*" element={<Home/>}/>
       </Routes>
     </div>
   )
