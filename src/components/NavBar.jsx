@@ -18,9 +18,6 @@ const NavBar = () => {
                         View articles
                     </Link>   
                 </button>       
-                {/* <button> 
-                    <Link className="nav-button" to="/comments/:comment_id"> Comments</Link> 
-                </button>                  */}
                 <button> 
                     <Link 
                         className="nav-button" 
