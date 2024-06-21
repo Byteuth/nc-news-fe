@@ -50,7 +50,7 @@ const ArticlesPage = () => {
             <h2 className="generic-border"> Topic: {selectedTopic || 'all'}</h2>
             <NavBarTopics setSelectedTopic={setSelectedTopic}/>
             {/* <SearchArticleByIdForm /> */}
-            <FilterArticlesBar setQueryValues={setQueryValues}/>
+            {/* <FilterArticlesBar setQueryValues={setQueryValues}/> */}
             <ArticlesList articlesToDisplay={articlesToDisplay} />
             {error && <p className="error"> {error} </p>}
         </>
