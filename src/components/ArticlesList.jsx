@@ -1,6 +1,8 @@
 import ArticlePreviewCard from './ArticlePreviewCard'
 
+
 const ArticlesList = ({articlesToDisplay}) => {
+
     return (
         <div className="article-section">
             <ul>

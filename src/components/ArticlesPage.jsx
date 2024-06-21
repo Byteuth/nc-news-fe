@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom"
 import NavBarTopics from './NavBarTopics'
 import SearchArticleByIdForm from './SearchArticleByIdForm'
 import ArticlesList from './ArticlesList'
+import FilterArticlesBar from './FilterArticlesBar'
 
 import {getAllArticles} from '../utils/api-utils'
 
@@ -12,6 +13,7 @@ const ArticlesPage = () => {
     const [error, setError] = useState(null)
     const [articles, setArticles] = useState([])
     const [selectedTopic, setSelectedTopic] = useState(null)
+    const [queryValues, setQueryValues] = useState('')
     const navigate = useNavigate()
     
 
@@ -25,14 +27,21 @@ const ArticlesPage = () => {
     },[])
 
     useEffect(() => {
+        if (queryValues.selectedAuthor) {
+            
+            setArticlesToDisplay(articles.filter((article) => article.author === queryValues.selectedAuthor)) 
+            console.log(articlesToDisplay)
+            navigate(`/articles?author=${queryValues.selectedAuthor}`)
+        }
         if (selectedTopic) {
             setArticlesToDisplay(articles.filter((article) => article.topic === selectedTopic)) 
             navigate(`/articles?topic=${selectedTopic}`)
+            
         } else {
             setArticlesToDisplay(articles)
             navigate(`/articles/`)
         }
-    },[selectedTopic, articles])
+    },[selectedTopic, articles, queryValues])
 
 
 
@@ -40,7 +49,8 @@ const ArticlesPage = () => {
         <>
             <h2 className="generic-border"> Topic: {selectedTopic || 'all'}</h2>
             <NavBarTopics setSelectedTopic={setSelectedTopic}/>
-            <SearchArticleByIdForm />
+            {/* <SearchArticleByIdForm /> */}
+            <FilterArticlesBar setQueryValues={setQueryValues}/>
             <ArticlesList articlesToDisplay={articlesToDisplay} />
             {error && <p className="error"> {error} </p>}
         </>

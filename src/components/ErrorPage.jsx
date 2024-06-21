@@ -1,6 +1,11 @@
+import { Link } from "react-router-dom"
+
 const ErrorPage = () => {
     return (
-            <h3 className="generic-border">Error</h3>
+        <>
+            <h4 className="generic-border"> ..something went wrong..</h4>
+            <Link  className="generic-border" to={`/articles`} >click to redirect</Link>
+        </>
     )
 }
 

@@ -1,4 +1,4 @@
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route, Navigate} from 'react-router-dom';
 import './App.css'
 
 import { useContext  } from 'react'
@@ -24,7 +24,6 @@ function App() {
         <h2 className="generic-border">Logged in as: {username} </h2>
         <NavBar />
       <Routes >
-        {/* <Route path="/" element={<NavBar/>} />   */}
         <Route path="/articles/:article_id/comments/:comment_id" element={<AllCommentsComponent/>}/>
         <Route path="/articles/:article_id/comments" element={<AllCommentsComponent/>}/>
         <Route path="/articles/:article_id" element={<IndividualArticlePage/>} />
@@ -32,6 +31,7 @@ function App() {
         <Route path="/articles" element={<ArticlesPage/>} /> 
         <Route path="/users"  element={<LoginPage/>} /> 
         <Route path="/error" element={<ErrorPage/>} />
+        <Route path="*" element={<Navigate to="/error"></Navigate>} />
       </Routes>
     </div>
   )
